@@ -1,7 +1,10 @@
 function App() {
 
   return (
-    <h1>Hello React</h1>
+    <div>
+      <h1 className="heading">Hello React</h1>
+      <button className="btn btn-primary">Click</button>
+    </div>
   )
 }
 
