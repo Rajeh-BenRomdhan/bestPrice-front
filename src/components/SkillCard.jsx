@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const SkillCard = (props) => {
   // eslint-disable-next-line react/prop-types
   const { tech } = props;
@@ -7,7 +9,7 @@ const SkillCard = (props) => {
       <img src={tech.image} className="card-img-top" alt="card item" />
       <div className="card-body">
         <h5 className="card-title">{tech.name}</h5>
-        <a href="#" className="btn btn-primary">Go somewhere</a>
+        <Link to={"/skills/" + tech.id} className="btn btn-primary">Go somewhere</Link>
       </div>
     </div>
   </div>);
