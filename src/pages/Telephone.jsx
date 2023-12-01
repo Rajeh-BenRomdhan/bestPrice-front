@@ -1,4 +1,4 @@
-const Contact = () => {
+const Telephone = () => {
   return (
     <div className="container mt-4">
       <h2>Contact Us</h2>
@@ -22,4 +22,4 @@ const Contact = () => {
   )
 }
 
-export default Contact
+export default Telephone

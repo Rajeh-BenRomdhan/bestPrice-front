@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import SkillCard from "../components/SkillCard";
 
-const Skills = () => {
+const Gaming = () => {
   const [technologies, setTechnologies] = useState([]);
 
   useEffect(() => {
@@ -18,10 +18,7 @@ const Skills = () => {
   }, []);
 
   return (
-    <div className="row">
-      {/* | | | | | | |     | | | | |
-      | | | | | | |     | | | | | */}
-      {
+    <div className="row" style={{marginLeft:"100px"}}> {
         technologies.map(tech => (
           <SkillCard key={tech.id} tech={tech} />
         ))
@@ -30,4 +27,4 @@ const Skills = () => {
   );
 }
 
-export default Skills;
+export default Gaming;

@@ -1,4 +1,4 @@
-const Projects = () => {
+const SmartWatch = () => {
   return (
     <div>
       Projects
@@ -6,4 +6,4 @@ const Projects = () => {
   );
 }
 
-export default Projects;
+export default SmartWatch;
