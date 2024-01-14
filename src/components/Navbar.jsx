@@ -1,34 +1,86 @@
-import { NavLink } from "react-router-dom"
+import { Button, Form } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { Link, NavLink } from "react-router-dom"
+import { logout } from "../store/userSlice";
 
 const Navbar = () => {
+  const dispatch = useDispatch()
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark" style={{ position: "fixed", zIndex: 999, width: "100%", top: "0px" }} >
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark"
+      style={{ position: "fixed", zIndex: 999, width: "100%", top: "0px" }} >
+
       <div className="container-fluid">
-        <a className="navbar-brand btn btn-primary" href="#"><h1>Best Price</h1></a>
-        <button className="navbar-toggler" type="button" 
-        data-bs-toggle="collapse" data-bs-target="#navbarNav"
-         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <Link className="navbar-brand btn btn-primary" to="/"><h1>Best Price</h1></Link>
+        <button className="navbar-toggler" type="button"
+          data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          
-          <ul className="navbar-nav">
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/Search">
-        <input className="form-control me-2 " type="text " placeholder="Search" />Search
-        <i className="fa fa-fw fa-search"></i>
-        </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink className="nav-link " to="/Cart">
-            <i className="bi bi-cart"></i>
-            <span className="cart-tatal--item"></span>
-            </NavLink>
-           </li>
-            <li className="nav-item">
-              <NavLink className="nav-link link-dark bg-white rounded float-end" to="/SignUp"><h4>SIGN UP</h4></NavLink>
+        <div className="dropdown">
+          <a href="#" className="d-flex align-items-center link-dark text-decoration-none
+       dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+            <strong>
+              <span className="fs-2 btn btn-info"><h2>Catégorie</h2></span>
+            </strong>
+          </a>
+          <ul className="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+            <li className="nav-item  ">
+              <NavLink className="nav-link link-dark dropdown-toggle dropdown-toggle-split " to="/Info">INFORMAIQUE</NavLink>
             </li>
-            
+            <hr />
+            <li className="nav-item">
+              <NavLink className="nav-link link-dark dropdown-toggle" to="/Telephone">TELEPHONE</NavLink>
+            </li>
+            <hr />
+            <li className="nav-item">
+              <NavLink className="nav-link link-dark dropdown-toggle" to="/Smart-Watch">SMART WATCH</NavLink>
+            </li>
+            <hr />
+            <li className="nav-item">
+              <NavLink className="nav-link link-dark dropdown-toggle " to="/Electromenager">ELECTROMENAGER</NavLink>
+            </li>
+            <hr />
+            <li className="nav-item">
+              <NavLink className="nav-link link-dark dropdown-toggle " to="/TV-Photo-Son">TV | PHOTO & SON</NavLink>
+            </li>
+            <hr />
+            <li className="nav-item">
+              <NavLink className="nav-link link-dark dropdown-toggle " to="/Impression">IMPRESSION</NavLink>
+            </li>
+            <hr />
+            <li className="nav-item">
+              <NavLink className="nav-link link-dark  dropdown-toggle" to="/Réseaux-securité">RESEAUX & SECURITE</NavLink>
+            </li>
+            <hr />
+            <li className="nav-item">
+              <NavLink className="nav-link link-dark dropdown-toggle " to="/Gaming">GAMING</NavLink>
+            </li>
+            <hr />
+            <li onClick={() => dispatch(logout())}><a className="dropdown-item">Sign out</a></li>
+          </ul>
+        </div>
+        <div className="collapse navbar-collapse" id="navbarNav">
+
+          <ul className="navbar-nav">
+             <Form className="d-flex">
+        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+        <Button className="btn btn-outline-success" type="submit">Search</Button>
+      </Form>
+            <li className="nav-item">
+              <NavLink className="nav-link " to="/Cart">
+                <i className="bi bi-cart"><span className="badge bg-danger">0</span></i>
+                {/* <span className="cart-tatal--item"></span> */}
+              </NavLink>
+            </li>
+            <li className="nav-item dropdown">
+              <a className="nav-link dropdown-toggle" href="#" role="button"
+                data-bs-toggle="dropdown">LOGIN</a>
+              <ul className="dropdown-menu">
+                <li><NavLink className="dropdown-item" to="/SignIn">SignIn</NavLink></li>
+                <li><NavLink className="dropdown-item" to="/SignUp">SignUp</NavLink></li>
+              </ul>
+            </li>
+
           </ul>
         </div>
       </div>

@@ -1,51 +1,29 @@
-import { NavLink } from "react-router-dom";
-
+import axios from "axios";
+import { useEffect, useState } from "react";
+import ProductCard from "../components/ProductCard";
 
 const Info = () => {
-    return ( 
-      <div className="d-flex flex-column flex-shrink-0 p-3 bg-secondary " 
-  style={{width: "200px", position: "fixed", zIndex: 999, height: "100vh", top: "50px"}}>
-    
-    <div className="dropdown">
-      <a href="#" className="d-flex align-items-center link-dark text-decoration-none
-       dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
-        <strong>
-        <span className="fs-2 btn btn-info"><h4>Informatique</h4></span>
-        </strong>
-      </a>
-      <ul className="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
-      <li className="nav-item  ">
-              <NavLink className="nav-link link-dark " to="/OrdinateurPortable">Ordinateur Portable</NavLink>
-            </li>
-            <hr/>
-            <li className="nav-item">
-              <NavLink className="nav-link link-dark " to="/OrdinateurBureau">Ordinateur Bureau</NavLink>
-            </li>
-            <hr/>
-            <li className="nav-item">
-              <NavLink className="nav-link link-dark" to="/ComposantInformatique">Composant Informatique</NavLink>
-            </li>
-            <hr/>
-            <li className="nav-item">
-              <NavLink className="nav-link link-dark " to="/Tablettes">Tablettes</NavLink>
-            </li>
-            <hr/>
-            <li className="nav-item">
-              <NavLink className="nav-link link-dark " to="/Stockage">Stockage</NavLink>
-            </li>
-            <hr/>
-            <li className="nav-item">
-              <NavLink className="nav-link link-dark " to="/Accessoires">Accessoires</NavLink>
-            </li>
-            <hr/>
-            <li className="nav-item">
-              <NavLink className="nav-link link-dark  " to="/Serveurs">Serveurs</NavLink>
-            </li>
-            <hr/>
-            </ul>
-            </div>
-            </div>
-     );
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    axios.get("http://localhost:5040/product/")
+      .then(response => {
+        const info = response.data;
+        // console.log(info)
+        setProducts(info)
+
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }, []);
+
+  return (
+    <div>
+      {
+        products.map(product => (
+          <ProductCard key={product._id} product={product} />
+        ))};
+    </div>
+  )
 }
- 
 export default Info;
