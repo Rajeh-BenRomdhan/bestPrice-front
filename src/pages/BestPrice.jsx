@@ -24,18 +24,14 @@ function BestPrice() {
     )
   }
   return (
-    <div style={{ marginTop: '100px', marginBottom: '60px' }}>
-      <button className="mb-6">OK2</button>
-
+    <div style={{ marginTop: '100px', marginBottom: '60px', marginLeft:'50px' }}>
       <Row>
         {list.map((product, i) => (
-          <Col sm={6} md={4} lg={3} key={i} className="mb-4">
+          <Col sm={6} md={4} lg={4} key={i} className=" d-flex mb-4">
             <ProductCard product={product} />
           </Col>
         ))}
       </Row>
-      <button className="mb-6">OK</button>
-
     </div>
   )
 }

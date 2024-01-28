@@ -8,7 +8,6 @@ const Info = () => {
     axios.get("http://localhost:5040/product/")
       .then(response => {
         const info = response.data;
-        // console.log(info)
         setProducts(info)
 
       })

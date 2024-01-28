@@ -26,8 +26,8 @@ export default function ProductDetails (){
       return (
         <>
         <h2>Product details</h2>
-        <img alt="product-img" className="mb-3 d-block mx-auto" style={{ maxWidth: 500 }} src={selected.photo} />
-        <Table striped bordered hover style={{ maxWidth: 500 }} className="mx-auto">
+        <img alt="product-img" className="mb-3 d-block mx-auto" style={{ maxWidth: 400 }} src={selected.photo} />
+        <Table striped bordered hover style={{ maxWidth: 400 }} className="mx-auto">
           <tbody>
             <tr>
               <td>Title</td>

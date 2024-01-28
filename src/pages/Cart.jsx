@@ -1,7 +1,12 @@
 import { useState } from "react";
 import { Button } from "react-bootstrap";
 import Form from "react-bootstrap/Form"
+import { useDispatch, useSelector } from "react-redux";
+import { addItem, deleteItem, removeOneItem } from "../store/cartSlice";
+
 const Cart = () => {
+    const cartItems = useSelector(state => state.cart.items)
+    const dispatch = useDispatch()
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -37,37 +42,22 @@ const Cart = () => {
                                 <span className="badge badge-secondary badge-pill">3</span>
                             </h4>
                             <ul className="list-group mb-3">
-                                <li className="list-group-item d-flex justify-content-between lh-condensed">
-                                    <div>
-                                        <h6 className="my-0">Product name</h6>
-                                        <small className="text-muted">Brief description</small>
-                                    </div>
-                                    <span className="text-muted">$12</span>
-                                </li>
-                                <li className="list-group-item d-flex justify-content-between lh-condensed">
-                                    <div>
-                                        <h6 className="my-0">Second product</h6>
-                                        <small className="text-muted">Brief description</small>
-                                    </div>
-                                    <span className="text-muted">$8</span>
-                                </li>
-                                <li className="list-group-item d-flex justify-content-between lh-condensed">
-                                    <div>
-                                        <h6 className="my-0">Third item</h6>
-                                        <small className="text-muted">Brief description</small>
-                                    </div>
-                                    <span className="text-muted">$5</span>
-                                </li>
-                                <li className="list-group-item d-flex justify-content-between bg-light">
-                                    <div className="text-success">
-                                        <h6 className="my-0">Promo code</h6>
-                                        <small>EXAMPLECODE</small>
-                                    </div>
-                                    <span className="text-success">-$5</span>
-                                </li>
+                                {cartItems.map(item => (
+                                       <li className="list-group-item d-flex justify-content-between lh-condensed">
+                                       <div>
+                                           <h6 className="my-0">{item.product.title} (PU: {item.product.price}) </h6>
+                                           <div>
+                                            <button onClick={() => dispatch(removeOneItem(item.product))}>-</button>
+                                            <button onClick={() => dispatch(addItem(item.product))}>+</button>
+                                            <button onClick={() => dispatch(deleteItem(item.product))}>Del</button>
+                                           </div>
+                                       </div>
+                                       <span className="text-muted"><span>(*{item.qty})</span> {item.product.price * item.qty}</span>
+                                   </li>  
+                                ))}
                                 <li className="list-group-item d-flex justify-content-between">
-                                    <span>Total (USD)</span>
-                                    <strong>$20</strong>
+                                    <span>Total (TND)</span>
+                                    <strong>{cartItems.reduce((acc, cv) => { return acc + (cv.qty * cv.product.price) }, 0)}</strong>
                                 </li>
                             </ul>
                             <Form className="card p-2">

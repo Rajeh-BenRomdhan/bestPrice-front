@@ -6,9 +6,11 @@ export const alertError = (message) =>{
 export const alertSucces = (message) => {
     toast(message, { className: "toast-succes"})
 }
-export const extractErrorMessage =(err) => {
-    let errorMessage = err.message || "request failed"
-    const errorWithData = err?.response?.data?.errorMessage
+export const extractErrorMessage = (err) => {
+    let errorMessage = err.message || "Request failed"
+
+    const errorWithData = err?.response?.data?.error
+
     if (typeof errorWithData === "string") {
         errorMessage = errorWithData
     }

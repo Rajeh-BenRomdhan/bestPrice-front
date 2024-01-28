@@ -16,7 +16,7 @@ function CreateProduct() {
     const [description, setDescription] = useState("")
     const [file, setFile] = useState(null)
     const [price, setPrice] = useState("")
-
+    const [quantity, setQuantity] = useState("")
     async function handleSubmit(e) {
         e.preventDefault()
         const formData = new FormData()
@@ -24,11 +24,12 @@ function CreateProduct() {
         formData.append("description", description)
         formData.append("price",Number(price))
         formData.append("photo", file)
+        formData.append("quantity" , quantity)
         dispatch(requestCreateProduct({formData, navigate}))
     }
 
     return (
-        <Container className="mt-3">
+        <Container className="mt-5">
             <h2>Create New Product</h2>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3">
@@ -44,12 +45,16 @@ function CreateProduct() {
                 <Form.Group className="mb-3">
                     <Form.Label>Photo</Form.Label>
                  <Form.Control type="file" accept="image/*" multiple={false} 
-                 onChange={e => setFile(e.target.files[0])}/>
+                     onChange={e => setFile(e.target.files[0])}/>
                 </Form.Group>
 
                 <Form.Group className="mb-3">
                     <Form.Label>Price</Form.Label>
                  <Form.Control name="price" type="number" value={price} onChange={e => setPrice(e.target.value)}/>
+                </Form.Group>
+                <Form.Group className="mb-3">
+                    <Form.Label>Quantity</Form.Label>
+                 <Form.Control name="quantity" value={quantity} onChange={e => setQuantity(e.target.value)}/>
                 </Form.Group>
              <Button type="submit" className="mx-auto d-block w-100" disabled={isLoading}>
                 {isLoading ? <Spinner size="sm" /> : <span>Add</span> }

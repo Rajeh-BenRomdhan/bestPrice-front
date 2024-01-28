@@ -2,21 +2,21 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { alertError, alertSucces, extractErrorMessage } from "../utilities/feedback";
 
-export const fetchProducts = createAsyncThunk("products/fetchProducts", async() =>{
+export const fetchProducts = createAsyncThunk("product/fetchProducts", async() =>{
     const res = await axios.get(`${import.meta.env.VITE_API_URL}/product`)
     return res.data
 })
 
-export const fetchProductById = createAsyncThunk("products/fetchProductById", async(id)=>{
-    const res = await axios.get(`${import.meta.env.VITE_API_URL}/products/{id}`)
+export const fetchProductById = createAsyncThunk("product/fetchProductById", async(id)=>{
+    const res = await axios.get(`${import.meta.env.VITE_API_URL}/product/${id}`)
     return res.data
 })
 export const requestCreateProduct = createAsyncThunk(
-    "products/requestCreateProduct",
-    async ({ FormData, navigate}, { rejectWithValue} ) => {
+    "product/requestCreateProduct",
+    async ({ formData, navigate}, { rejectWithValue} ) => {
         try {
             const token = localStorage.getItem("token")
-            const res = await axios.post(`${import.meta.env.VITE_API_URL}/products`, FormData,
+            const res = await axios.post(`${import.meta.env.VITE_API_URL}/product`, formData,
             {headers: {
              "Content-Type": "multipart/form-data",
              Authorization: token
@@ -30,29 +30,29 @@ export const requestCreateProduct = createAsyncThunk(
         }
     })
     export const requestUpdateProduct = createAsyncThunk(
-        "products/requestUpdateProduct",
+        "product/requestUpdateProduct",
         async ({id, data, navigate}, {rejectWithValue}) =>{
             try {
                 const token = localStorage.getItem("token")
-                const res = await axios.put(`${import.meta.env.VITE_API_URL}/products/${id}`,data,{
+                const res = await axios.put(`${import.meta.env.VITE_API_URL}/product/${id}`,data,{
                     headers: {
                         Authorization: token
                     }
                 })
-                navigate(`/products/${id}`)
+                navigate(`/`)
                 return res.data
             } catch (error) {
-                const errorMessage = extractErrorMessaage(error)
+                const errorMessage = extractErrorMessage(error)
                 return rejectWithValue(errorMessage)
             }
         } )
         export const requestDeleteProduct = createAsyncThunk(
-            "products/requestDeleteProduct",
+            "product/requestDeleteProduct",
             async ({id , closeModel}, {rejectWithValue}) => {
                 try {
                     const token = localStorage.getItem("token")
                     const res = await axios.delete (
-                        `${import.meta.env.VITE_API_URL}/products/${id}`,
+                        `${import.meta.env.VITE_API_URL}/product/${id}`,
                         {
                             headers: {
                                 Authorization: token
@@ -68,7 +68,7 @@ export const requestCreateProduct = createAsyncThunk(
             }
         )
  export const userSlice = createSlice ({
-    name: "products",
+    name: "product",
     initialState: {
         list: [],
         isLoading: false,
@@ -123,8 +123,8 @@ extraReducers: (builder) => {
       })
       .addCase(requestUpdateProduct.fulfilled, (state, action) => {
         state.isLoading = false
-        state.list = state.list.map(element => element._id === action.payload.item._id ? action.payload.product : element)
-        alertSuccess(action.payload.message)
+        state.list = state.list.map(element => element._id === action.payload.product._id ? action.payload.product : element)
+        alertSucces(action.payload.message)
       })
       .addCase(requestUpdateProduct.rejected, (state, action) => {
         state.isLoading = false
@@ -139,7 +139,7 @@ extraReducers: (builder) => {
       .addCase(requestDeleteProduct.fulfilled, (state, action) => {
         state.isLoading = false
         state.list = state.list.filter(element => element._id !== action.payload.product._id)
-        alertSuccess(action.payload.message)
+        alertSucces(action.payload.message)
       })
       .addCase(requestDeleteProduct.rejected, (state, action) => {
         state.isLoading = false

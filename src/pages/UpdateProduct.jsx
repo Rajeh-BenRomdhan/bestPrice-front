@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { fetchProductById, requestUpdateProduct } from "../store/productSlice";
 import  Button  from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import  Form  from "react-bootstrap/Form";
 
 function UpdateProduct() {
-    const {selected} = useSelector(state => state.products)
+    const { selected } = useSelector( state => state.products)
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const {id} = useParams()
@@ -16,28 +16,29 @@ function UpdateProduct() {
         title:"",
         description:"",
         photo:"",
-        price:""
+        price:"",
+        quantity:""
     })
     useEffect(() => {
         if (selected) {
             setProductData(selected)
         }
     }, [selected])
-    useEffect(() =>{
+    useEffect(() => {
         dispatch(fetchProductById(id))
     }, [dispatch, id])
 
     function handleSubmit(e) {
         e.preventDefault ()
-        const { title, description, photo, price} =productData
-        dispatch(requestUpdateProduct({id, data: {title, description, photo, price}, navigate}))
+        const { title, description, photo, price, quantity} = productData
+        dispatch(requestUpdateProduct({id, data: {title, description, photo, price, quantity}, navigate}))
 
     }
     function handleChange(e) {
         setProductData(prevProductData => ({... prevProductData, [e.target.name]: e.target.value}))
     }
     return (
-        <Container className="mt-3">
+        <Container className="mt-5">
             <h2>Update Product</h2>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3">
@@ -57,9 +58,13 @@ function UpdateProduct() {
 
                 <Form.Group className="mb-3">
                     <Form.Label>Price</Form.Label>
-                    <Form.Control name="price" type="number" value={productData.photo} onChange={handleChange}/>
+                    <Form.Control name="price" type="number" value={productData.price} onChange={handleChange}/>
                 </Form.Group>
-                <Button type="submit" className="mx-auto d-block w-100">Update</Button>
+                <Form.Group className="mb-3">
+                    <Form.Label>quantity</Form.Label>
+                    <Form.Control name="quantity" value={productData.quantity} onChange={handleChange}/>
+                </Form.Group>
+                < Button type="submit" className="mx-auto d-block w-100">Update</Button>
             </Form>
         </Container>
     )
