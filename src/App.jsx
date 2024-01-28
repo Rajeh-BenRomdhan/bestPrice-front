@@ -54,14 +54,15 @@ function App() {
             <Route path="/SignIn" element={<SignIn />} />
             <Route path="/SignUp" element={<SignUp />} />
 
-            <Route path="/Info" element={<Info />} />
+            {/* <Route path="/Info" element={<Info />} />
             <Route path="/Gaming" element={< Gaming />} />
             <Route path="/Smart-Watch" element={< SmartWatch />} />
             <Route path="/Telephone" element={< Telephone />} />
             <Route path="/Electro" element={<Electro />} />
             <Route path="/TPS" element={< TPS />} />
             <Route path="/Impression" element={< Impression />} />
-            <Route path="/Reseaux" element={< Réseaux />} />
+            <Route path="/Reseaux" element={< Réseaux />} /> */}
+            <Route path="/category/:id" element={<BestPrice />} />
             <Route path="/CreateProduct" element={< CreateProduct />} />
             <Route path="/UpdateProduct/:id" element={< UpdateProduct />} />
             {/* <Route path="/Service" element={<Service />} /> */}

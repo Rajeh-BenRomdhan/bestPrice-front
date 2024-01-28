@@ -34,11 +34,11 @@ const Navbar = () => {
             </li>
             <hr />
             <li className="nav-item">
-              <NavLink className="nav-link link-dark dropdown-toggle" to="/Smart-Watch">SMART WATCH</NavLink>
+              <NavLink className="nav-link link-dark dropdown-toggle" to="/category/smartphone">SMART PHONE</NavLink>
             </li>
             <hr />
             <li className="nav-item">
-              <NavLink className="nav-link link-dark dropdown-toggle " to="/Electromenager">ELECTROMENAGER</NavLink>
+              <NavLink className="nav-link link-dark dropdown-toggle " to="/category/electromenager">ELECTROMENAGER</NavLink>
             </li>
             <hr />
             <li className="nav-item">

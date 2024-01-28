@@ -5,13 +5,16 @@ import { useDispatch, useSelector } from "react-redux";
 import ProductCard from "../components/ProductCard";
 import { useEffect } from "react";
 import { fetchProducts } from "../store/productSlice";
+import { useParams } from "react-router-dom";
 
 
 function BestPrice() {
+  const params = useParams()
+  let category = params.id
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(fetchProducts())
-  }, [])
+    dispatch(fetchProducts(category))
+  }, [category])
   const { list, error, isLoading } = useSelector(state => state.products)
   if (isLoading) {
     return <h1>Loading</h1>

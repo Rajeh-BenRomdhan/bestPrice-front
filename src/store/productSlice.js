@@ -2,8 +2,8 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { alertError, alertSucces, extractErrorMessage } from "../utilities/feedback";
 
-export const fetchProducts = createAsyncThunk("product/fetchProducts", async() =>{
-    const res = await axios.get(`${import.meta.env.VITE_API_URL}/product`)
+export const fetchProducts = createAsyncThunk("product/fetchProducts", async(category) =>{
+    const res = await axios.get(`${import.meta.env.VITE_API_URL}/product${category ? `?category=${category}` : ""}`)
     return res.data
 })
 
