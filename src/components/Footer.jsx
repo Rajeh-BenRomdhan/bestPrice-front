@@ -3,14 +3,14 @@ import { NavLink } from "react-router-dom";
 const Footer = () => {
   return (
     <div className="container-fluid py-0" style={{
-      backgroundColor: " #929fba",
+      backgroundColor: " #E6E6FA",
       // position: "fixed",
       zIndex: -1,
       // width: "100%",
       // bottom: "0px"
     }}>
 
-      <footer className="text-center text-lg-start text-white" >
+      <footer className="text-center text-lg-start text-black" >
 
         {/* <div className="container p-2 pb-0"> */}
 
@@ -27,18 +27,18 @@ const Footer = () => {
           <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mt-2">
             <h6 className="text-uppercase mb-4 font-weight-bold">Follow us</h6>
 
-            <a className="btn btn-primary btn-floating m-1" style={{ backgroundColor: "#3b5998", href: "#!", role: "button" }}>
+            <a className="btn btn-primary btn-floating m-1" style={{ backgroundColor: "#3b5998", href: "#!", role: "button", boxShadow: "5px 10px 18px #888888" }}>
               <i className="bi bi-facebook"></i></a>
 
-            <a className="btn btn-primary btn-floating m-1" style={{ backgroundColor: " #55acee", href: "#!", role: "button" }}>
+            <a className="btn btn-primary btn-floating m-1" style={{ backgroundColor: " #55acee", href: "#!", role: "button", boxShadow: "5px 10px 18px #888888" }}>
               <i className="bi bi-twitter"></i></a>
-            <a className="btn btn-primary btn-floating m-1" style={{ backgroundColor: "#dd4b39", href: "#!", role: "button" }}>
+            <a className="btn btn-primary btn-floating m-1" style={{ backgroundColor: "#dd4b39", href: "#!", role: "button" , boxShadow: "5px 10px 18px #888888"}}>
               <i className="bi bi-google"></i></a>
-            <a className="btn btn-primary btn-floating m-1" style={{ backgroundColor: "#ac2bac", href: "#!", role: "button" }}>
+            <a className="btn btn-primary btn-floating m-1" style={{ backgroundColor: "#ac2bac", href: "#!", role: "button" , boxShadow: "5px 10px 18px #888888"}}>
               <i className="bi bi-instagram"></i></a>
-            <a className="btn btn-primary btn-floating m-1" style={{ backgroundColor: "#0082ca", href: "#!", role: "button" }}>
+            <a className="btn btn-primary btn-floating m-1" style={{ backgroundColor: "#0082ca", href: "#!", role: "button" , boxShadow: "5px 10px 18px #888888"}}>
               <i className="bi bi-linkedin"></i></a>
-            <a className="btn btn-primary btn-floating m-1" style={{ backgroundColor: "#333333", href: "#!", role: "button" }}>
+            <a className="btn btn-primary btn-floating m-1" style={{ backgroundColor: "#333333", href: "#!", role: "button", boxShadow: "5px 10px 18px #888888" }}>
               <i className="bi bi-github"></i></a>
           </div>
         </div>

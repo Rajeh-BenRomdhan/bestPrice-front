@@ -17,16 +17,12 @@
     color: darkblue;
   }
   
-  /* ↓ FROM Dynamic Sidebar HTML/CSS Workshop ↓ */
-  
   :root {
     --sidebar-width: 60px;
-    /* --footer-width:100%;
-    --footer-heigth: 200px; */
   }
   
   .main-menu {
-    background-color: #212121;
+    background-color: #6B8E23;
     position: fixed;
     top: 0;
     bottom: 0;

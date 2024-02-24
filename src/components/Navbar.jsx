@@ -7,11 +7,11 @@ const Navbar = () => {
   const dispatch = useDispatch()
   const cartItems = useSelector(state => state.cart.items)
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark"
-      style={{ position: "fixed", zIndex: 999, width: "100%", top: "0px" }} >
+    <nav className="navbar navbar-expand-lg "
+      style={{ position: "fixed", zIndex: 999, width: "100%", top: "0px", background:"#6B8E23" }} >
 
       <div className="container-fluid">
-        <Link className="navbar-brand btn btn-primary" to="/"><h1>Best Price</h1></Link>
+        <Link className="navbar-brand btn btn-white" to="/"><h1>BEST PRICE</h1></Link>
         <button className="navbar-toggler" type="button"
           data-bs-toggle="collapse" data-bs-target="#navbarNav"
           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,16 +21,16 @@ const Navbar = () => {
           <a href="#" className="d-flex align-items-center link-dark text-decoration-none
        dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
             <strong>
-              <span className="fs-2 btn btn-info"><h2>Catégorie</h2></span>
+              <span className="fs-2 btn btn-white"><h3>CATEGORIES</h3></span>
             </strong>
           </a>
           <ul className="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
             <li className="nav-item  ">
-              <NavLink className="nav-link link-dark dropdown-toggle dropdown-toggle-split " to="/Info">INFORMAIQUE</NavLink>
+              <NavLink className="nav-link link-dark dropdown-toggle dropdown-toggle-split " to="/category/informatique">INFORMAIQUE</NavLink>
             </li>
             <hr />
             <li className="nav-item">
-              <NavLink className="nav-link link-dark dropdown-toggle" to="/Telephone">TELEPHONE</NavLink>
+              <NavLink className="nav-link link-dark dropdown-toggle " to="/category/gaming">GAMING</NavLink>
             </li>
             <hr />
             <li className="nav-item">
@@ -42,19 +42,19 @@ const Navbar = () => {
             </li>
             <hr />
             <li className="nav-item">
-              <NavLink className="nav-link link-dark dropdown-toggle " to="/TV-Photo-Son">TV | PHOTO & SON</NavLink>
+              <NavLink className="nav-link link-dark dropdown-toggle " to="/category/TV-Photo-Son">TV | PHOTO & SON</NavLink>
             </li>
             <hr />
             <li className="nav-item">
-              <NavLink className="nav-link link-dark dropdown-toggle " to="/Impression">IMPRESSION</NavLink>
+              <NavLink className="nav-link link-dark dropdown-toggle " to="/category/Impression">IMPRESSION</NavLink>
             </li>
             <hr />
             <li className="nav-item">
-              <NavLink className="nav-link link-dark  dropdown-toggle" to="/Réseaux-securité">RESEAUX & SECURITE</NavLink>
+              <NavLink className="nav-link link-dark  dropdown-toggle" to="/category/Réseaux-securité">RESEAUX & SECURITE</NavLink>
             </li>
             <hr />
             <li className="nav-item">
-              <NavLink className="nav-link link-dark dropdown-toggle " to="/Gaming">GAMING</NavLink>
+              <NavLink className="nav-link link-dark dropdown-toggle" to="/Telephone">TELEPHONE</NavLink>
             </li>
             <hr />
           </ul>

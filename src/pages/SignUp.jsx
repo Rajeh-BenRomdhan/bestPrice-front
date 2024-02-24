@@ -26,8 +26,8 @@ function SignUp  () {
       <Form onSubmit={handleSubmit}>
 
       <Form.Group className="mb-3">
-        <Form.Label>First Name</Form.Label>
-        <Form.Control 
+        <Form.Label >First Name</Form.Label>
+        <Form.Control style={{ boxShadow: "5px 10px 18px #888888"}}
           placeholder="Enter first name" 
           value={firstName} 
           onChange={e => setFirstName(e.target.value)} 
@@ -36,7 +36,7 @@ function SignUp  () {
 
       <Form.Group className="mb-3">
         <Form.Label>Last Name</Form.Label>
-        <Form.Control 
+        <Form.Control style={{ boxShadow: "5px 10px 18px #888888"}}
           placeholder="Enter last name" 
           value={lastName} 
           onChange={e => setLastName(e.target.value)} 
@@ -45,7 +45,7 @@ function SignUp  () {
 
       <Form.Group className="mb-3">
         <Form.Label>Phone</Form.Label>
-        <Form.Control 
+        <Form.Control style={{ boxShadow: "5px 10px 18px #888888"}}
           placeholder="Enter phone" 
           value={phone} 
           onChange={e => setphone(e.target.value)} 
@@ -53,7 +53,7 @@ function SignUp  () {
       </Form.Group>
       <Form.Group className="mb-3">
         <Form.Label>Address</Form.Label>
-        <Form.Control 
+        <Form.Control style={{ boxShadow: "5px 10px 18px #888888"}}
           placeholder="Enter address" 
           value={address} 
           onChange={e => setaddress(e.target.value)} 
@@ -62,7 +62,7 @@ function SignUp  () {
 
       <Form.Group className="mb-3">
         <Form.Label>Email address</Form.Label>
-        <Form.Control 
+        <Form.Control style={{ boxShadow: "5px 10px 18px #888888"}}
           type="email" 
           placeholder="Enter email" 
           value={email} 
@@ -72,7 +72,7 @@ function SignUp  () {
 
       <Form.Group className="mb-3">
         <Form.Label>Password</Form.Label>
-        <Form.Control 
+        <Form.Control style={{ boxShadow: "5px 10px 18px #888888"}}
           type="password" 
           placeholder="Password" 
           value={password} 
@@ -80,7 +80,7 @@ function SignUp  () {
         />
       </Form.Group>
 
-      <Button variant="primary" type="submit">
+      <Button variant="primary" type="submit" style={{ boxShadow: "5px 10px 18px #888888"}}>
         Submit
       </Button>
     </Form>

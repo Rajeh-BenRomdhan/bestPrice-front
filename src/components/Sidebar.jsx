@@ -17,7 +17,7 @@ function Sidebar() {
   }
   
   return (
-    <nav className="main-menu" style={{marginTop:'80px'}}>
+    <nav className="main-menu" style={{marginTop:'70px'}}>
       <ul>
         <li>
           <NavLink to="/">

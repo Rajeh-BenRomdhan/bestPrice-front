@@ -34,18 +34,18 @@ const SignIn = () => {
       <form onSubmit={handleSignIn}>
         <label>
           Email:<br />
-          <input type="email" name="email" 
+          <input type="email" name="email" style={{ boxShadow: "5px 10px 18px #888888"}}
           value={formData.email} onChange={handleChange} />
         </label>
         
-        <br/>
+        <br/><br />
         <label>
           Password:<br />
-          <input type="password" name="password" value={formData.password} onChange={handleChange} />
+          <input type="password" name="password" style={{ boxShadow: "5px 10px 18px #888888"}} value={formData.password} onChange={handleChange} />
         </label>
         <br/>
         <br />
-        <button className="btn btn-info" type="submit">Sign In</button>
+        <button className="btn btn-info" type="submit" style={{ boxShadow: "5px 10px 18px #888888"}}>Sign In</button>
         <br/><br/>
       </form>
       </div>

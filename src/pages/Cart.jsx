@@ -47,9 +47,9 @@ const Cart = () => {
                                        <div>
                                            <h6 className="my-0">{item.product.title} (PU: {item.product.price}) </h6>
                                            <div>
-                                            <button onClick={() => dispatch(removeOneItem(item.product))}>-</button>
-                                            <button onClick={() => dispatch(addItem(item.product))}>+</button>
-                                            <button onClick={() => dispatch(deleteItem(item.product))}>Del</button>
+                                            <button className="btn btn-success " onClick={() => dispatch(removeOneItem(item.product))}>-</button>
+                                            <button className="btn btn-success " onClick={() => dispatch(addItem(item.product))}>+</button>
+                                            <button className="btn btn-warning " onClick={() => dispatch(deleteItem(item.product))}>Del</button>
                                            </div>
                                        </div>
                                        <span className="text-muted"><span>(*{item.qty})</span> {item.product.price * item.qty}</span>

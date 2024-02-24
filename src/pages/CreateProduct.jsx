@@ -60,12 +60,20 @@ function CreateProduct() {
                 </Form.Group>
                 <Form.Select onChange={(e) => setCategory(e.target.value)}>
                     <option>Choisis une categorie</option>
+                    <option value="informatique">Informatique</option>
+                    <option value="gaming">Gaming</option>
+                    <option value="impression">Impression</option>
                     <option value="electromenager">Electromenager</option>
                     <option value="smartphone">Smartphone</option>
+                    <option value="tv-son-photo">TV|SON&PHOTO</option>
+                    <option value="reseaux">Reseaux</option>
+
                 </Form.Select>
+                <br/>
                 <Button type="submit" className="mx-auto d-block w-100" disabled={isLoading}>
                     {isLoading ? <Spinner size="sm" /> : <span>Add</span>}
                 </Button>
+                <br/>
             </Form>
         </Container>
     )
